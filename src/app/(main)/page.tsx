@@ -1,5 +1,5 @@
-import Link from 'next/link';
-
+// import Link from 'next/link';
+import Chat from './_component/Chat';
 const Home = () => {
   return (
     <main className="w-full h-screen bg-[#304b69] flex items-center justify-center p-[4vw]">
@@ -12,9 +12,9 @@ const Home = () => {
                 로그아웃
               </button>
             </div>
-            <div className="flex-1 flex items-center justify-center gap-5 ">
+            <div className="flex-1 flex items-center justify-left gap-5 ">
               <p className="bg-gray-400 w-[70px] h-[70px] rounded-full" />
-              <div>
+              <div className="p-6">
                 <p>지원</p>
                 <p>jgb07012@gmail.com</p>
               </div>
@@ -41,14 +41,8 @@ const Home = () => {
             <p className="text-2xl font-bold mr-2">지원</p>
             <p className="bg-green-700 w-[13px] h-[13px] rounded-full" />
           </div>
-          <div className="h-[80%]  border-b-1 border-[#d8d8d8] p-3">
-            채팅 화면 <Link href="chat">채팅</Link>
-          </div>
-          <div className="h-[10%] p-3 flex items-center justify-center gap-1.5">
-            <input className="border w-[90%] border-[#d8d8d8] rounded-xl p-3" />
-            <button className="bg-[#304b69] p-[12px] text-white rounded-xl font-bold cursor-pointer">
-              전송
-            </button>
+          <div className="h-[90%]">
+            <Chat />
           </div>
         </div>
       </div>
