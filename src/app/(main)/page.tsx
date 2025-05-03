@@ -5,7 +5,7 @@ const Home = () => {
     <main className="w-full h-screen bg-[#304b69] flex items-center justify-center p-[4vw]">
       <div className="w-full h-full xl bg-[#F1EFEC] rounded-xl flex">
         <div className="w-[30%] bg-[#e7e7e7] rounded-tl-lg rounded-bl-lg flex flex-col">
-          <div className="h-[20%] border-b-1 border-[#d8d8d8] p-3 flex flex-col ">
+          <div className="h-[15%] border-b-1 border-[#d8d8d8] p-3 flex flex-col ">
             <div className="justify-between flex items-center">
               <p className="text-xl font-semibold">프로필</p>
               <button className="text-sm font-semibold  border border-gray-600 p-0.5 rounded-sm cursor-pointer">
@@ -20,7 +20,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="h-[15%] border-b border-[#d8d8d8] p-3 text-xl font-semibold flex flex-col">
+          <div className="h-[10%] border-b border-[#d8d8d8] p-3 text-xl font-semibold flex flex-col">
             <p className="text-xl font-semibold">친구 검색</p>
             <div className="flex-1 flex items-center justify-center gap-1">
               <input
@@ -31,6 +31,9 @@ const Home = () => {
                 검색
               </button>
             </div>
+          </div>
+          <div className="h-[15%] border-b border-[#d8d8d8] p-3 text-xl font-semibold flex flex-col">
+            <p className="text-xl font-semibold">친구 요청</p>
           </div>
           <div className="h-[65%] p-3 text-xl font-semibold">
             <p className="text-xl font-semibold">친구 목록 (0)</p>

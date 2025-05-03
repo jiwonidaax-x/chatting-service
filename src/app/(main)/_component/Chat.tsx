@@ -11,10 +11,12 @@ const Chat = () => {
     console.log('✅ connected to server, socket id:', socket.id);
   });
 
+  //TODO: 보내는이, 메세지, 시간, 받는이 정보 보내기
   const sendMessage = () => {
     socket.emit('send_message', { text: message });
   };
 
+  //TODO JOIN ROOM
   useEffect(() => {
     socket.on('receive_message', (data) => {
       setMessageReceived(data.text);
