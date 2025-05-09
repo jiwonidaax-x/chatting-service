@@ -10,7 +10,7 @@ const Home = () => {
             <div className="justify-between flex items-center">
               <p className="text-xl font-semibold">프로필</p>
               <button className="text-sm font-semibold  border border-gray-600 p-0.5 rounded-sm cursor-pointer">
-                <Link href="/login">로그아웃</Link>
+                <Link href="/auth">로그아웃</Link>
               </button>
             </div>
             <div className="flex-1 flex items-center justify-left gap-5 ">
