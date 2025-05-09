@@ -1,5 +1,6 @@
-// import Link from 'next/link';
+import Link from 'next/link';
 import Chat from './_component/Chat';
+
 const Home = () => {
   return (
     <main className="w-full h-screen bg-[#304b69] flex items-center justify-center p-[4vw]">
@@ -9,12 +10,12 @@ const Home = () => {
             <div className="justify-between flex items-center">
               <p className="text-xl font-semibold">프로필</p>
               <button className="text-sm font-semibold  border border-gray-600 p-0.5 rounded-sm cursor-pointer">
-                로그아웃
+                <Link href="/login">로그아웃</Link>
               </button>
             </div>
             <div className="flex-1 flex items-center justify-left gap-5 ">
               <p className="bg-gray-400 w-[70px] h-[70px] rounded-full" />
-              <div className="p-6">
+              <div className="p-3">
                 <p>지원</p>
                 <p>jgb07012@gmail.com</p>
               </div>
