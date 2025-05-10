@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Chat from './_component/Chat';
 
+// TODO:컴포넌트화 시키기
 const Home = () => {
   return (
     <main className="w-full h-screen bg-[#304b69] flex items-center justify-center p-[4vw]">
@@ -8,7 +9,7 @@ const Home = () => {
         <div className="w-[30%] bg-[#e7e7e7] rounded-tl-lg rounded-bl-lg flex flex-col">
           <div className="h-[15%] border-b-1 border-[#d8d8d8] p-3 flex flex-col ">
             <div className="justify-between flex items-center">
-              <p className="text-xl font-semibold">프로필</p>
+              <p>프로필</p>
               <button className="text-sm font-semibold  border border-gray-600 p-0.5 rounded-sm cursor-pointer">
                 <Link href="/auth">로그아웃</Link>
               </button>
