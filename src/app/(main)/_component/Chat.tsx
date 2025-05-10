@@ -13,7 +13,6 @@ interface MsgType {
 //유저 정보 받아오기
 const Chat = () => {
   const [message, setMessage] = useState('');
-  // const [messageReceived, setMessageReceived] = useState('');
   const [msgHistory, setMsgHistory] = useState<MsgType[]>([]);
 
   socket.on('connect', () => {
@@ -35,6 +34,7 @@ const Chat = () => {
       socket.emit('send_message', { messageData });
 
       setMsgHistory((list) => [...list, messageData]);
+      setMessage('');
     }
   };
 
@@ -62,6 +62,7 @@ const Chat = () => {
           className="border w-[90%] border-[#d8d8d8] rounded-xl p-3"
           placeholder="메세지를 입력하세요..."
           onChange={(e) => setMessage(e.target.value)}
+          value={message}
         />
         <button
           className="bg-[#304b69] p-[12px] text-white rounded-xl font-bold cursor-pointer"
