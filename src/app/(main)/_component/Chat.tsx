@@ -2,6 +2,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+
 import socket from '@/lib/socket';
 
 interface MsgType {
@@ -11,7 +12,13 @@ interface MsgType {
 }
 
 //유저 정보 받아오기
-const Chat = () => {
+const Chat = ({
+  user,
+  room,
+}: {
+  user: { id: string; name: string };
+  room: string;
+}) => {
   const [message, setMessage] = useState('');
   const [msgHistory, setMsgHistory] = useState<MsgType[]>([]);
 
@@ -23,7 +30,8 @@ const Chat = () => {
   const sendMessage = () => {
     if (message !== '') {
       const messageData = {
-        sender: 'jiwon',
+        room: room,
+        sender: user.name,
         message: message,
         time:
           new Date(Date.now()).getHours() +
@@ -40,19 +48,27 @@ const Chat = () => {
 
   //TODO JOIN ROOM
   useEffect(() => {
-    socket.on('receive_message', (data) => {
-      setMsgHistory((list: MsgType[]) => [...list, data.messageData]);
-    });
-  }, [socket]);
+    const handleReceiveMessage = (messageData: MsgType) => {
+      console.log('받은 메시지:', messageData);
+      setMsgHistory((list) => [...list, messageData]);
+    };
+
+    socket.on('receive_message', handleReceiveMessage);
+
+    return () => {
+      socket.off('receive_message', handleReceiveMessage); // 이벤트 클린업
+    };
+  }, []);
 
   return (
     <main className="h-[100%]">
-      <div className="h-[90%]  border-b-1 border-[#d8d8d8] p-3">
+      <div className="h-[90%]  border-b-1 border-[#d8d8d8] p-3 overflow-auto">
         {msgHistory.map((e: MsgType, i) => {
           return (
             <div key={i}>
               <p>{e.message}</p>
               <p>{e.time}</p>
+              <p>{e.sender}</p>
             </div>
           );
         })}
