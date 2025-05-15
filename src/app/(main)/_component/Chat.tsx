@@ -16,7 +16,7 @@ const Chat = ({
   user,
   room,
 }: {
-  user: { id: string; name: string };
+  user: { email: string; name: string };
   room: string;
 }) => {
   const [message, setMessage] = useState('');
