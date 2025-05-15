@@ -44,6 +44,25 @@ export const signUp = async ({
     .then((res) => alert(res.message));
 };
 
+export const logOut = async ({ id }: { id: string }) => {
+  const logout = useUserStore.getState().logout;
+  await fetch('http://localhost:8080/api/logout', {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email: id }),
+  }).then(async (res) => {
+    const data = await res.json();
+    if (data.state === 200) {
+      alert(data.message);
+      logout();
+    } else {
+      alert(data.message);
+    }
+  });
+};
+
 export const getUser = () => {
   return fetch('http://localhost:8080/api/user/all', {
     method: 'post',
