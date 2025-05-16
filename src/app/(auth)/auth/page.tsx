@@ -19,7 +19,6 @@ const Auth = () => {
               className="object-contain"
             />
           </div>
-
           <AuthBox />
         </div>
       </div>

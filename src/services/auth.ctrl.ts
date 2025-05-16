@@ -1,4 +1,12 @@
+/* eslint-disable no-undef */
 import useUserStore from '@/store/useUserStore';
+
+const SERVER =
+  process.env.NEXT_PUBLIC_DATA_PROTOCOL +
+  '://' +
+  process.env.NEXT_PUBLIC_DATA_ADDR +
+  ':' +
+  process.env.NEXT_PUBLIC_DATA_PORT;
 
 export const login = async (
   { id, pw }: { id: string; pw: string },
@@ -6,7 +14,7 @@ export const login = async (
 ) => {
   const setUser = useUserStore.getState().setUser;
 
-  await fetch('http://localhost:8080/api/login', {
+  await fetch(`${SERVER}/api/login`, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
@@ -33,7 +41,7 @@ export const signUp = async ({
   id: string;
   pw: string;
 }) => {
-  await fetch('http://localhost:8080/api/signup', {
+  await fetch(`${SERVER}/api/signup`, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
@@ -46,7 +54,7 @@ export const signUp = async ({
 
 export const logOut = async ({ id }: { id: string }) => {
   const logout = useUserStore.getState().logout;
-  await fetch('http://localhost:8080/api/logout', {
+  await fetch(`${SERVER}/api/logout`, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
@@ -64,7 +72,7 @@ export const logOut = async ({ id }: { id: string }) => {
 };
 
 export const getUser = () => {
-  return fetch('http://localhost:8080/api/user/all', {
+  return fetch(`${SERVER}/api/user/all`, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',

@@ -24,7 +24,7 @@ const Chat = ({
   const [msgHistory, setMsgHistory] = useState<MsgType[]>([]);
 
   socket.on('connect', () => {
-    console.log('✅ connected to server, socket id:', socket.id);
+    console.log(' connected to server, socket id:', socket.id);
   });
 
   useEffect(() => {

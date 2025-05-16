@@ -63,7 +63,7 @@ const AuthBox = () => {
             <button
               className="bg-[#304b69] text-white py-3 cursor-pointer rounded-md font-semibold hover:bg-[#253b53] transition"
               onClick={(e) => {
-                e.preventDefault(); // 새로고침 방지!
+                e.preventDefault(); // 새로고침 방지
                 login({ id: id, pw: pw }, router.push);
                 valInit();
               }}
@@ -97,7 +97,7 @@ const AuthBox = () => {
             <button
               className="bg-[#304b69] text-white py-3 rounded-md font-semibold cursor-pointer hover:bg-[#253b53] transition"
               onClick={(e) => {
-                e.preventDefault(); // 새로고침 방지!
+                e.preventDefault(); // 새로고침 방지
                 signUp({ name: name, id: id, pw: pw });
                 valInit();
               }}

@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+
 'use client';
 import Link from 'next/link';
 import Chat from './_component/Chat';
@@ -7,6 +8,7 @@ import useUserStore from '@/store/useUserStore';
 import socket from '@/lib/socket';
 import { getUser, logOut } from '@/services/auth.ctrl';
 import { useEffect, useState } from 'react';
+
 // TODO:컴포넌트화 시키기
 const Home = () => {
   const { user, logout, hasHydrated } = useUserStore();
@@ -16,6 +18,7 @@ const Home = () => {
 
   useEffect(() => {
     if (!user && hasHydrated) {
+      //하이드레이션이 이루어 지고난 후 확인
       window.location.href = '/auth';
     }
   }, [user, hasHydrated]);
@@ -117,7 +120,7 @@ const Home = () => {
               <>
                 <div className="h-[10%] flex items-center border-b-1 border-[#d8d8d8] p-3">
                   <p className="text-2xl font-bold mr-2">{receiver.name}</p>
-                  <p className="bg-green-700 w-[13px] h-[13px] rounded-full" />
+                  {/* <p className="bg-green-700 w-[13px] h-[13px] rounded-full" /> */}
                 </div>
                 <div className="h-[90%]">
                   <Chat user={user} room={room} />
